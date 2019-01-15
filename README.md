@@ -191,31 +191,9 @@ Other Style Guides
     };
     ```
 
-  <a name="es6-object-shorthand"></a><a name="3.5"></a>
-  - [3.3](#es6-object-shorthand) Use object method shorthand. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html)
 
-    ```javascript
-    // bad
-    const atom = {
-      value: 1,
-
-      addValue: function (value) {
-        return atom.value + value;
-      },
-    };
-
-    // good
-    const atom = {
-      value: 1,
-
-      addValue(value) {
-        return atom.value + value;
-      },
-    };
-    ```
-
-  <a name="es6-object-concise"></a><a name="3.6"></a>
-  - [3.4](#es6-object-concise) Use property value shorthand. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html)
+  <a name="es6-object-concise"></a><a name="3.5"></a>
+  - [3.3](#es6-object-concise) Use property value shorthand. eslint: [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand.html)
 
     > Why? It is shorter and descriptive.
 
@@ -233,8 +211,8 @@ Other Style Guides
     };
     ```
 
-  <a name="objects--grouped-shorthand"></a><a name="3.7"></a>
-  - [3.5](#objects--grouped-shorthand) Group your shorthand properties at the beginning of your object declaration.
+  <a name="objects--grouped-shorthand"></a><a name="3.6"></a>
+  - [3.4](#objects--grouped-shorthand) Group your shorthand properties at the beginning of your object declaration.
 
     > Why? It’s easier to tell which properties are using the shorthand.
 
@@ -263,8 +241,8 @@ Other Style Guides
     };
     ```
 
-  <a name="objects--quoted-props"></a><a name="3.8"></a>
-  - [3.6](#objects--quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](https://eslint.org/docs/rules/quote-props.html)
+  <a name="objects--quoted-props"></a><a name="3.7"></a>
+  - [3.5](#objects--quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](https://eslint.org/docs/rules/quote-props.html)
 
     > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
 
@@ -285,7 +263,7 @@ Other Style Guides
     ```
 
   <a name="objects--prototype-builtins"></a>
-  - [3.7](#objects--prototype-builtins) Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`. eslint: [`no-prototype-builtins`](https://eslint.org/docs/rules/no-prototype-builtins)
+  - [3.6](#objects--prototype-builtins) Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`. eslint: [`no-prototype-builtins`](https://eslint.org/docs/rules/no-prototype-builtins)
 
     > Why? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a null object (`Object.create(null)`).
 
@@ -305,7 +283,7 @@ Other Style Guides
     ```
 
   <a name="objects--rest-spread"></a>
-  - [3.8](#objects--rest-spread) Prefer the object spread operator over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
+  - [3.7](#objects--rest-spread) Prefer the object spread operator over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
 
     ```javascript
     // very bad
@@ -647,31 +625,8 @@ Other Style Guides
 
 ## Functions
 
-  <a name="functions--declarations"></a><a name="7.1"></a>
-  - [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](https://eslint.org/docs/rules/func-style)
-
-    > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to explicitly name the expression, regardless of whether or not the name is inferred from the containing variable (which is often the case in modern browsers or when using compilers such as Babel). This eliminates any assumptions made about the Error’s call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
-
-    ```javascript
-    // bad
-    function foo() {
-      // ...
-    }
-
-    // bad
-    const foo = function () {
-      // ...
-    };
-
-    // good
-    // lexical name distinguished from the variable-referenced invocation(s)
-    const short = function longUniqueMoreDescriptiveLexicalFoo() {
-      // ...
-    };
-    ```
-
-  <a name="functions--iife"></a><a name="7.2"></a>
-  - [7.2](#functions--iife) Wrap immediately invoked function expressions in parentheses. eslint: [`wrap-iife`](https://eslint.org/docs/rules/wrap-iife.html)
+  <a name="functions--iife"></a><a name="7.1"></a>
+  - [7.1](#functions--iife) Wrap immediately invoked function expressions in parentheses. eslint: [`wrap-iife`](https://eslint.org/docs/rules/wrap-iife.html)
 
     > Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
 
@@ -682,11 +637,11 @@ Other Style Guides
     }());
     ```
 
-  <a name="functions--in-blocks"></a><a name="7.3"></a>
-  - [7.3](#functions--in-blocks) Never declare a function in a non-function block (`if`, `while`, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: [`no-loop-func`](https://eslint.org/docs/rules/no-loop-func.html)
+  <a name="functions--in-blocks"></a><a name="7.2"></a>
+  - [7.2](#functions--in-blocks) Never declare a function in a non-function block (`if`, `while`, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: [`no-loop-func`](https://eslint.org/docs/rules/no-loop-func.html)
 
-  <a name="functions--note-on-blocks"></a><a name="7.4"></a>
-  - [7.4](#functions--note-on-blocks) **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement.
+  <a name="functions--note-on-blocks"></a><a name="7.3"></a>
+  - [7.3](#functions--note-on-blocks) **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement.
 
     ```javascript
     // bad
@@ -705,8 +660,8 @@ Other Style Guides
     }
     ```
 
-  <a name="functions--arguments-shadow"></a><a name="7.5"></a>
-  - [7.5](#functions--arguments-shadow) Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+  <a name="functions--arguments-shadow"></a><a name="7.4"></a>
+  - [7.4](#functions--arguments-shadow) Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
 
     ```javascript
     // bad
@@ -720,8 +675,8 @@ Other Style Guides
     }
     ```
 
-  <a name="es6-rest"></a><a name="7.6"></a>
-  - [7.6](#es6-rest) Never use `arguments`, opt to use rest syntax `...` instead. eslint: [`prefer-rest-params`](https://eslint.org/docs/rules/prefer-rest-params)
+  <a name="es6-rest"></a><a name="7.5"></a>
+  - [7.5](#es6-rest) Never use `arguments`, opt to use rest syntax `...` instead. eslint: [`prefer-rest-params`](https://eslint.org/docs/rules/prefer-rest-params)
 
     > Why? `...` is explicit about which arguments you want pulled. Plus, rest arguments are a real Array, and not merely Array-like like `arguments`.
 
@@ -738,8 +693,8 @@ Other Style Guides
     }
     ```
 
-  <a name="es6-default-parameters"></a><a name="7.7"></a>
-  - [7.7](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
+  <a name="es6-default-parameters"></a><a name="7.6"></a>
+  - [7.6](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
 
     ```javascript
     // really bad
@@ -765,8 +720,8 @@ Other Style Guides
     }
     ```
 
-  <a name="functions--default-side-effects"></a><a name="7.8"></a>
-  - [7.8](#functions--default-side-effects) Avoid side effects with default parameters.
+  <a name="functions--default-side-effects"></a><a name="7.7"></a>
+  - [7.7](#functions--default-side-effects) Avoid side effects with default parameters.
 
     > Why? They are confusing to reason about.
 
@@ -782,8 +737,8 @@ Other Style Guides
     count();  // 3
     ```
 
-  <a name="functions--defaults-last"></a><a name="7.9"></a>
-  - [7.9](#functions--defaults-last) Always put default parameters last.
+  <a name="functions--defaults-last"></a><a name="7.8"></a>
+  - [7.8](#functions--defaults-last) Always put default parameters last.
 
     ```javascript
     // bad
@@ -797,8 +752,8 @@ Other Style Guides
     }
     ```
 
-  <a name="functions--constructor"></a><a name="7.10"></a>
-  - [7.10](#functions--constructor) Never use the Function constructor to create a new function. eslint: [`no-new-func`](https://eslint.org/docs/rules/no-new-func)
+  <a name="functions--constructor"></a><a name="7.9"></a>
+  - [7.9](#functions--constructor) Never use the Function constructor to create a new function. eslint: [`no-new-func`](https://eslint.org/docs/rules/no-new-func)
 
     > Why? Creating a function in this way evaluates a string similarly to `eval()`, which opens vulnerabilities.
 
@@ -810,8 +765,8 @@ Other Style Guides
     var subtract = Function('a', 'b', 'return a - b');
     ```
 
-  <a name="functions--signature-spacing"></a><a name="7.11"></a>
-  - [7.11](#functions--signature-spacing) Spacing in a function signature. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
+  <a name="functions--signature-spacing"></a><a name="7.10"></a>
+  - [7.10](#functions--signature-spacing) Spacing in a function signature. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
 
     > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
 
@@ -826,8 +781,8 @@ Other Style Guides
     const y = function a() {};
     ```
 
-  <a name="functions--mutate-params"></a><a name="7.12"></a>
-  - [7.12](#functions--mutate-params) Never mutate parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
+  <a name="functions--mutate-params"></a><a name="7.11"></a>
+  - [7.11](#functions--mutate-params) Never mutate parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
 
     > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
 
@@ -843,8 +798,8 @@ Other Style Guides
     }
     ```
 
-  <a name="functions--reassign-params"></a><a name="7.13"></a>
-  - [7.13](#functions--reassign-params) Never reassign parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
+  <a name="functions--reassign-params"></a><a name="7.12"></a>
+  - [7.12](#functions--reassign-params) Never reassign parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
 
     > Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
 
@@ -871,8 +826,8 @@ Other Style Guides
     }
     ```
 
-  <a name="functions--spread-vs-apply"></a><a name="7.14"></a>
-  - [7.14](#functions--spread-vs-apply) Prefer the use of the spread operator `...` to call variadic functions. eslint: [`prefer-spread`](https://eslint.org/docs/rules/prefer-spread)
+  <a name="functions--spread-vs-apply"></a><a name="7.13"></a>
+  - [7.13](#functions--spread-vs-apply) Prefer the use of the spread operator `...` to call variadic functions. eslint: [`prefer-spread`](https://eslint.org/docs/rules/prefer-spread)
 
     > Why? It’s cleaner, you don’t need to supply a context, and you can not easily compose `new` with `apply`.
 
@@ -893,7 +848,7 @@ Other Style Guides
     ```
 
   <a name="functions--signature-invocation-indentation"></a>
-  - [7.15](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item. eslint: [`function-paren-newline`](https://eslint.org/docs/rules/function-paren-newline)
+  - [7.14](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item. eslint: [`function-paren-newline`](https://eslint.org/docs/rules/function-paren-newline)
 
     ```javascript
     // bad
@@ -3301,44 +3256,6 @@ Other Style Guides
     const requests = [
       // ...
     ];
-    ```
-
-  <a name="naming--uppercase"></a>
-  - [23.10](#naming--uppercase) You may optionally uppercase a constant only if it (1) is exported, (2) is a `const` (it can not be reassigned), and (3) the programmer can trust it (and its nested properties) to never change.
-
-    > Why? This is an additional tool to assist in situations where the programmer would be unsure if a variable might ever change. UPPERCASE_VARIABLES are letting the programmer know that they can trust the variable (and its properties) not to change.
-    - What about all `const` variables? - This is unnecessary, so uppercasing should not be used for constants within a file. It should be used for exported constants however.
-    - What about exported objects? - Uppercase at the top level of export  (e.g. `EXPORTED_OBJECT.key`) and maintain that all nested properties do not change.
-
-    ```javascript
-    // bad
-    const PRIVATE_VARIABLE = 'should not be unnecessarily uppercased within a file';
-
-    // bad
-    export const THING_TO_BE_CHANGED = 'should obviously not be uppercased';
-
-    // bad
-    export let REASSIGNABLE_VARIABLE = 'do not use let with uppercase variables';
-
-    // ---
-
-    // allowed but does not supply semantic value
-    export const apiKey = 'SOMEKEY';
-
-    // better in most cases
-    export const API_KEY = 'SOMEKEY';
-
-    // ---
-
-    // bad - unnecessarily uppercases key while adding no semantic value
-    export const MAPPING = {
-      KEY: 'value'
-    };
-
-    // good
-    export const MAPPING = {
-      key: 'value'
-    };
     ```
 
 **[⬆ back to top](#table-of-contents)**

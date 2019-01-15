@@ -6,15 +6,17 @@
     "preinstall": "npm run install:config && npm run install:config:base",
     "install:config": "cd packages/eslint-config-airbnb && npm prune && npm install",
     "install:config:base": "cd packages/eslint-config-airbnb-base && npm prune && npm install",
-    "lint": "markdownlint --config linters/.markdownlint.json README.md */README.md",
-    "pretest": "npm run --silent lint",
-    "test": "npm run --silent test:config && npm run --silent test:config:base",
+    "test": "npm run --silent test:config && npm run --silent test:config:base; npm run test:jest",
     "test:config": "cd packages/eslint-config-airbnb; npm test",
+    "test:jest": "jest",
     "test:config:base": "cd packages/eslint-config-airbnb-base; npm test",
     "pretravis": "npm run --silent lint",
     "travis": "npm run --silent travis:config && npm run --silent travis:config:base",
     "travis:config": "cd packages/eslint-config-airbnb; npm run travis",
     "travis:config:base": "cd packages/eslint-config-airbnb-base; npm run travis"
+  },
+  "jest": {
+    "verbose": true
   },
   "repository": {
     "type": "git",
@@ -39,6 +41,13 @@
   },
   "homepage": "https://github.com/airbnb/javascript",
   "devDependencies": {
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0",
+    "jest-transform-stub": "^1.0.0",
     "markdownlint-cli": "^0.13.0"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "regenerator-runtime": "^0.13.1"
   }
 }
