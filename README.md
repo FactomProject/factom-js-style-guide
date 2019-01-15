@@ -1,8 +1,16 @@
-# Airbnb JavaScript Style Guide() {
+# ~~Airbnb~~ Factom JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
 > **Note**: this guide assumes you are using [Babel](https://babeljs.io), and requires that you use [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) or the equivalent. It also assumes you are installing shims/polyfills in your app, with [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) or the equivalent.
+
+### UNIT TESTING
+
+To run all tests, including Jest and eslint:
+`npm run test`
+
+To run just Jest unit testing:
+`npm run test:jest`
 
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
